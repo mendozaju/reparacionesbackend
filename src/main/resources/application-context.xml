@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="corsFilter" class="com.famp.backend.config.CorsFilter" />
+	
+	<bean id="mapper" class="org.dozer.DozerBeanMapper">
+		<property name="mappingFiles">
+			<list>
+				<value>dozer-bean-mappings.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Objetos del dominio -->
+	<bean id="product" class="com.famp.backend.domain.ProductBean" scope="prototype"/>
+	<bean id="dataResponse" class="com.famp.backend.domain.Response" scope="prototype"/>
+	
+	<!-- Objetos entities -->
+	<bean id="productEntity" class="com.famp.backend.services.entities.Product" scope="prototype"/>
+
+</beans>
